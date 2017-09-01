@@ -5,7 +5,7 @@ publish:
 
 # concat tcl script to lib/dqi.tcl
 merge:
-	bin/gendqi.tcl dc_tcl tcl
+	bin/genlib.tcl -cfg genlib.cfg -o lib/dqi.tcl 
 
 # split dqi.tcl to individual tcl file
 split:

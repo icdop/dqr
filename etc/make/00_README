@@ -1,0 +1,13 @@
+* makefile
+
+header.make: basic definition
+
+main.make: targets to make main executable
+
+test.make: targets to test program
+
+liba.make: targets to make share library
+
+libtcl.make: targets to make tcl share library
+
+

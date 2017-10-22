@@ -1,0 +1,9 @@
+TITLE	= "title"
+PHASE	= *
+STAGE	= 500-SIGNOFF
+INPUT	= pt_sta.log
+FLOW	= import_sta_report
+COMMAND	= 
+TYPE	= PARAMETER
+UNIT	= ps
+

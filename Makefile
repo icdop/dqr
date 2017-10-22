@@ -1,4 +1,4 @@
-GIT_PATH := https://github.com/VirtualChip/dqi.git
+GIT_PATH := https://github.com/VirtualChip/dqr.git
 
 help:
         @echo "Usage: make bin"

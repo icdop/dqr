@@ -1,0 +1,11 @@
+#!/bin/csh -f
+set prog=$0:t
+if ($prog == "CSHRC.dqr") then
+   setenv DQR_HOME `realpath $0:h`
+else
+   setenv DQR_HOME `pwd`
+endif
+echo "DQR_HOME = $DQR_HOME"
+set path = ($DQR_HOME/bin $path)
+
+setenv DQR_PLUGIN $DQR_HOME/plugin

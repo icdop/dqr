@@ -8,11 +8,11 @@ endif
 echo "======================================================="
 echo "TIME: @`date +%Y%m%d_%H%M%S` BEGIN $prog $*"
 
-if ($?DVC_HOME == 0) then
-   setenv DVC_HOME $0:h/..
+if ($?DQR_HOME == 0) then
+   setenv DQR_HOME $0:h/..
 endif
-setenv ETC_DIR $DVC_HOME/etc
-setenv CSH_DIR $DVC_HOME/csh
+setenv ETC_DIR $DQR_HOME/etc
+setenv CSH_DIR $DQR_HOME/csh
 source $CSH_DIR/12_get_server.csh
 source $CSH_DIR/13_get_project.csh
 source $CSH_DIR/14_get_design.csh

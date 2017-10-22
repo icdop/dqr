@@ -1,6 +1,6 @@
-include ../../etc/make/header.make
+include $(DOP_HOME)/etc/make/header.make
 
-PACKAKGE_LIB = libdqi.tcl
+PACKAKGE_LIB = libdqm.tcl
 
-include ../../etc/make/libtcl.make
+include $(DOP_HOME)/etc/make/libtcl.make
 

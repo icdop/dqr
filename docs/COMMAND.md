@@ -1,4 +1,4 @@
-# DQI Utility Command Usage
+# Utility Command Usage
 
 ## Command: <command>
 ### Description: what does this command do?

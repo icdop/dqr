@@ -1,4 +1,4 @@
-PKGNAME  = dqi
+PKGNAME  = dop
 PKGVERN  = v2017.9
 
 # Final Releae direcotry

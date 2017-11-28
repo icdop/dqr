@@ -38,7 +38,7 @@ echo "CONTAINER : $container"
 set dvc_title = "Container $container"
 set dvc_name = $container
 set dvc_path = $phase/$block/$stage/$version/$dvc_name
-set dvc_data = $PROJT_ROOT/$dvc_path
+set dvc_data = $PROJT_PATH/$dvc_path
 
 if {(test -d $dvc_data)} then
   set container_htm   = $dvc_data/index.htm
@@ -68,7 +68,7 @@ set object_list   = `dir $dvc_data`
 foreach object ( $object_list )
    set item_name=$object
    set item_path=$phase/$block/$stage/$version/$container
-   set item_data=$PROJT_ROOT/$item_path/$item_name
+   set item_data=$PROJT_PATH/$item_path/$item_name
    if {(test -d $item_data)} then
       $(CSH_DIR)/85_report_container --html $(html_templ) $container/$object
    else if {(test -e $item_data)} then
@@ -77,7 +77,7 @@ foreach object ( $object_list )
       #### OBJECT HTML REPORT
       set dvc_name = $object
       set dvc_path = $item_path/$dvc_name
-      set dvc_data = $PROJT_ROOT/$dvc_path
+      set dvc_data = $PROJT_PATH/$dvc_path
    endif
 end
 (source $html_templ/container/_table_end.csh) >> $container_htm

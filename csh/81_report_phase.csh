@@ -36,7 +36,7 @@ echo "PHASE : $phase"
 set dvc_title = "Phase $phase"
 set dvc_name = $phase
 set dvc_path = $phase
-set dvc_data = $PROJT_ROOT/$dvc_path
+set dvc_data = $PROJT_PATH/$dvc_path
 
 if {(test -d $dvc_data)} then
   set phase_htm   = $dvc_data/index.htm
@@ -63,7 +63,7 @@ echo "<summary> Block List </summary>" >> $phase_htm
  foreach block ( $block_list )
     set item_name=$block
     set item_path=$phase
-    set item_data=$PROJT_ROOT/$item_path/$item_name
+    set item_data=$PROJT_PATH/$item_path/$item_name
     if ($item_name != "_") then
     if {(test -d $item_data)} then
        echo "	BLOCK : $block"

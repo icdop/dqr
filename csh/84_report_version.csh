@@ -36,7 +36,7 @@ echo "VERSION : $version"
 set dvc_title = "Version $version"
 set dvc_name = $version
 set dvc_path = $phase/$block/$stage/$version
-set dvc_data = $PROJT_ROOT/$dvc_path
+set dvc_data = $PROJT_PATH/$dvc_path
 
 if {(test -d $dvc_data)} then
 else
@@ -66,7 +66,7 @@ echo "<summary> Container List </summary>" >> $version_htm
  foreach container ( $container_list )
     set item_name=$container
     set item_path=$phase/$block/$stage/$version
-    set item_data=$PROJT_ROOT/$item_path/$item_name
+    set item_data=$PROJT_PATH/$item_path/$item_name
     if ($container != "_") then
     if {(test -d $item_data)} then
        echo "	CONTAINER : $container"
@@ -77,7 +77,7 @@ echo "<summary> Container List </summary>" >> $version_htm
        set dvc_title = "Container $container"
        set dvc_name = $container
        set dvc_path = $item_path/$dvc_name
-       set dvc_data = $PROJT_ROOT/$dvc_path
+       set dvc_data = $PROJT_PATH/$dvc_path
        set container_htm   = $dvc_data/index.htm
        set container_css   = $dvc_data/.htm/index.css
        cp $html_templ/container/index.css $container_css
@@ -89,14 +89,14 @@ echo "<summary> Container List </summary>" >> $version_htm
        foreach object ( $object_list )
           set item_name=$object
           set item_path=$phase/$block/$stage/$version/$container
-          set item_data=$PROJT_ROOT/$item_path/$item_name
+          set item_data=$PROJT_PATH/$item_path/$item_name
           if {(test -e $item_data)} then
              echo "		OBJECT  : $object"
              (source $html_templ/container/_table_data.csh) >> $container_htm
              #### OBJECT HTML REPORT
              set dvc_name = $object
              set dvc_path = $item_path/$dvc_name
-             set dvc_data = $PROJT_ROOT/$dvc_path
+             set dvc_data = $PROJT_PATH/$dvc_path
           endif
        end
       (source $html_templ/container/_table_end.csh) >> $container_htm

@@ -24,15 +24,27 @@ if ($1 != "") then
    shift argv
 endif
 
-setenv CONTAINER_PATH $DESIGN_PHASE/$DESIGN_BLOCK/$DESIGN_STAGE/$DESIGN_VERSN/$DESIGN_CONTR
-setenv CONTAINER_DIR  $PROJT_PATH/$CONTAINER_PATH
 
-if {(test -e $PTR_VERSN/$DESIGN_CONTR/.dvc/DESIGN_PATH)} then
+if {(test -e $PTR_VERSN/$DESIGN_CONTR/.dvc/env/DESIGN_PATH)} then
+   setenv CONTAINER_DIR  $PTR_VERSN/$DESIGN_CONTR
+   setenv CONTAINER_PATH `cat $CONTAINER_DIR/.dvc/env/DESIGN_PATH`/$DESIGN_CONTR
+else if {(test -e $PTR_VERSN/$DESIGN_CONTR/.dvc/DESIGN_PATH)} then
+   # backward compatible with 1018a , migrate to new 1025 format
    setenv CONTAINER_DIR  $PTR_VERSN/$DESIGN_CONTR
    setenv CONTAINER_PATH `cat $CONTAINER_DIR/.dvc/DESIGN_PATH`/$DESIGN_CONTR
-else if {(test -e $CONTAINER_DIR)} then
+   mkdir -p $CONTAINER_DIR/.dvc/env
+   cp $CONTAINER_DIR/.dvc/DESIGN_PATH $CONTAINER_DIR/.dvc/env/DESIGN_PATH
+   (cd $CONTAINER_DIR/.dvc/; svn add --force env)
+   svn rm --force $CONTAINER_DIR/.dvc/DESIGN_PATH
 else 
-   echo "ERROR: can not find container : '$DESIGN_CONTR'."
+   setenv CONTAINER_PATH $DESIGN_PHASE/$DESIGN_BLOCK/$DESIGN_STAGE/$DESIGN_VERSN/$DESIGN_CONTR
+   setenv CONTAINER_DIR  $PROJT_PATH/$CONTAINER_PATH
+endif
+
+if {(test -e $CONTAINER_DIR)} then
+   echo "INFO: Container Path - '$CONTAINER_DIR'"
+else
+   echo "ERROR: can not find container - '$DESIGN_CONTR'."
    exit 1
 endif
 

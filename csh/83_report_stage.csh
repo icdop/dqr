@@ -36,7 +36,7 @@ echo "STAGE : $stage"
 set dvc_title = "Stage $stage"
 set dvc_name = $stage
 set dvc_path = $phase/$block/$stage
-set dvc_data = $PROJT_ROOT/$dvc_path
+set dvc_data = $PROJT_PATH/$dvc_path
 
 if {(test -d $dvc_data)} then
   set stage_htm   = $dvc_data/index.htm
@@ -64,7 +64,7 @@ echo "<summary> Version List </summary>" >> $stage_htm
  foreach version ( $version_list )
     set item_name=$version
     set item_path=$phase/$block/$stage
-    set item_data=$PROJT_ROOT/$item_path/$item_name
+    set item_data=$PROJT_PATH/$item_path/$item_name
     if ($item_name != "_") then
     if {(test -d $item_data)} then
        echo "	VERSION : $version"

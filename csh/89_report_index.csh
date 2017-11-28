@@ -13,8 +13,9 @@ if ($?DQR_HOME == 0) then
 endif
 setenv CSH_DIR $DQR_HOME/csh
 setenv ETC_DIR $DQR_HOME/etc
-source $CSH_DIR/00_set_path.csh
-12_get_server.csh
+#source $CSH_DIR/00_set_path.csh
+#12_get_server.csh
+source $CSH_DIR/12_get_server.csh
 source $CSH_DIR/13_get_project.csh
 source $CSH_DIR/14_get_design.csh
 source $CSH_DIR/18_get_report.csh

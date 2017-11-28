@@ -1,13 +1,13 @@
 IMPORT_LIST  := DESIGN_FILES
 REQUIRE_LIST := REQUIRE_FILES
-DQI_LIST     := DQI.rpt
+DQI_REPORT   := DQI.csv
 
 help:
 	@echo "=========================================================="
 	@echo "Usage: make design   -- create design version folder"
 	@echo "Usage: make import   -- copy report files into DVC"
 	@echo "Usage: make check    -- check if all required files exit"
-	@echo "Usage: make run      -- run extraction script"
+	@echo "Usage: make dqi      -- run DQI extraction script"
 	@echo "Usage: make save     -- save DQI value into DVC"
 	@echo "Usage: make html     -- generate HTML report "
 	@echo "=========================================================="
@@ -21,6 +21,8 @@ help:
 	@echo "=========================================================="
 	@more plugin/help.txt
 
+run: design import check dqi save html
+
 $(IMPORT_LIST):
 	cp plugin/$(IMPORT_LIST) .
 	@echo "============================================================================="
@@ -29,7 +31,7 @@ $(IMPORT_LIST):
 	@echo "============================================================================="
 	@cat $(IMPORT_LIST)
 	@echo "============================================================================="
-	@vi $(IMPORT_LIST)
+#	@vi $(IMPORT_LIST)
 
 design:
 	@echo "You need to create a design version folder before move forward"
@@ -44,11 +46,11 @@ import: $(IMPORT_LIST)
 check:
 	plugin/script/check.csh plugin/$(REQUIRE_LIST)
 	
-run: 
-	plugin/script/run.csh
+dqi: 
+	plugin/script/extractDQI.csh $(DQI_REPORT)
 
-save: $(DQI_LIST)
-	plugin/script/saveDQI.awk $(DQI_LIST)
+save: $(DQI_REPORT)
+	plugin/script/saveDQI.awk $(DQI_REPORT)
 
 html:
 	dvc_report_version --html plugin/html 

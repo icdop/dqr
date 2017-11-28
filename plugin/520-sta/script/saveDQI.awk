@@ -4,7 +4,7 @@ BEGIN {
 }
 {
    if ($1 != "") {
-      system("dvc_set_dqi "$1" "$2)
+      system("dqr_set_dqi "$1" "$2)
    }
 }
 END {

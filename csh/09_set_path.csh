@@ -11,12 +11,12 @@ if ($1 == "--dop") then
    shift argv
 endif
 if ($1 == "") then
-   setenv DQR_HOME `realpath $0:h/..`
+   setenv DVC_HOME `realpath $0:h/..`
 else
-   setenv DQR_HOME $1
+   setenv DVC_HOME $1
 endif
-echo "INFO: DQR_HOME = $DQR_HOME"
+echo "INFO: DVC_HOME = $DVC_HOME"
 if ($?dop_mode) then
-   setenv DOP_HOME `realpath $DQR_HOME/..`
+   setenv DOP_HOME `realpath $DVC_HOME/..`
    echo "INFO: DOP_HOME = $DOP_HOME"
 endif

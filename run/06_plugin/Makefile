@@ -1,13 +1,16 @@
+flow	:= plugin/520-sta
+
 help: plugin
-	make -f plugin/Makefile help
+	make -f xxplugin/Makefile help
 
 design:
-	dvc_create_project 06-plugin
-	dvc_create_design P1-trial/block/520-sta/2017_0914-xxx
+	dvc_init_server --root svn_root -mode file
+	dvc_create_project 06-plugin _
+	dvc_create_design P1-trial/block/520-sta/170914-ww38
 	dvc_checkout_design
 
-import check run save html view:
-	make -f plugin/Makefile $@
+run import check dqi save html view:
+	make -f $flow/Makefile $@
 
 checkin:
 	dvc_checkin_design
@@ -15,5 +18,5 @@ checkin:
 clean:
 	rm -fr _ .dop
 	rm -f :phase :block :stage :version :container 
-	rm -f DQI.rpt DESIGN_FILES
+	rm -f DQI.csv DESIGN_FILES
 

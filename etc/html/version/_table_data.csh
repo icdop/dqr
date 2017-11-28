@@ -6,17 +6,13 @@ echo "</a>"
 echo "</td>"
 
 echo "<td class=col2>"
-echo "<pre>" 
-dvc_get_dqi --root $item_data --script --all
-echo "</pre>" 
+cat "$item_data/.dvc/README"
 echo "</td>"
 
-echo "<td class=col3>"
-foreach object (`ls -1 $item_data`)
-  if {(test -d $object)} then
-     echo "<a href=$item_name/$object>$object </a><br>"
-  else
-     echo "<a href=$item_name/$object>$object </a><br>"
-  endif
+foreach dqi ($container_dqi)
+  echo "<td width=10>"
+  dvc_get_dqi --root $item_data $dqi
+  echo "</td>"
 end
-echo "</td></tr>"
+
+echo "</tr>"

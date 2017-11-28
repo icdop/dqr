@@ -1,5 +1,5 @@
-echo "<a href=$PROJT_ROOT/index.htm>$project</a>"
+echo "<a href=$PROJT_PATH/index.htm>$project</a>"
 echo "<pre>"
-dvc_tree_design
+dvc_list_design
 echo "</pre>"
 

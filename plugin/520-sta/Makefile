@@ -13,18 +13,18 @@ help:
 	@echo "=========================================================="
 	@echo "Prepare the following files and copy them to :version"
 	@echo "----------------------------------------------------------"
-	@cat plugin/$(REQUIRE_LIST)
+	@cat flow/$(REQUIRE_LIST)
 	@echo ""
 	@echo "or Edit the $(IMPORT_LIST) file as below content:"
 	@echo "----------------------------------------------------------"
-	@cat plugin/$(IMPORT_LIST)
+	@cat flow/$(IMPORT_LIST)
 	@echo "=========================================================="
-	@more plugin/help.txt
+	@more flow/help.txt
 
 run: design import check dqi save html
 
 $(IMPORT_LIST):
-	cp plugin/$(IMPORT_LIST) .
+	cp flow/$(IMPORT_LIST) .
 	@echo "============================================================================="
 	@echo "WARNING : Copy file $(IMPORT_LIST) to local directory,"
 	@echo "          Please modify the required field before moving to next step."
@@ -41,22 +41,22 @@ design:
 	@echo "   dvc_checkout_design"
 	
 import: $(IMPORT_LIST)
-	plugin/script/import.awk $(IMPORT_LIST)
+	flow/script/import.awk $(IMPORT_LIST)
 	
 check:
-	plugin/script/check.csh plugin/$(REQUIRE_LIST)
+	flow/script/check.csh flow/$(REQUIRE_LIST)
 	
 dqi: 
-	plugin/script/extractDQI.csh $(DQI_REPORT)
+	flow/script/extractDQI.csh $(DQI_REPORT)
 
 save: $(DQI_REPORT)
-	plugin/script/saveDQI.awk $(DQI_REPORT)
+	flow/script/saveDQI.awk $(DQI_REPORT)
 
 html:
-	dvc_report_version --html plugin/html 
+	dqr_report_version --html flow/html 
 
 clean:
-	rm -f .dop :* plugin
+	rm -f .dop :* flow
 
 view:
 	firefox :version/index.htm
@@ -70,5 +70,5 @@ link:
 	ln -s ../:version :version
 	rm -f :container
 	ln -s ../:container :container
-	rm -f plugin
-	ln -s . plugin
+	rm -f flow
+	ln -s . flow

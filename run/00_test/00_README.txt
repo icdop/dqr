@@ -24,12 +24,12 @@ Example:
 
 Example:
 
-	% dvc_create_version P1-trial/chip/000-DATA/2017_0910-xxx
+	% dvc_create_folder P1-trial/chip/000-DATA/2017_0910-xxx
 
-	% dvc_checkout_version P1-trial/chip/000-DATA/2017_0910-xxx
+	% dvc_checkout_folder P1-trial/chip/000-DATA/2017_0910-xxx
 
 	% dvc_copy_object :version /ftp_path/design.v design.v
 
-	% dvc_checkin_version 
+	% dvc_checkin_folder 
 
 

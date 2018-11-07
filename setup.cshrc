@@ -1,6 +1,6 @@
 #!/bin/csh -f
 set prog=$0:t
-if ($prog == "setup.cshrc") then
+if ("$prog" == "setup.cshrc") then
    setenv DQR_HOME `realpath $0:h`
 else 
    setenv DQR_HOME `pwd`

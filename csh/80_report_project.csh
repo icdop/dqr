@@ -13,14 +13,16 @@ if ($?DQR_HOME == 0) then
 endif
 setenv ETC_DIR $DQR_HOME/etc
 setenv CSH_DIR $DQR_HOME/csh
-source $CSH_DIR/12_get_server.csh
-source $CSH_DIR/13_get_project.csh
-source $CSH_DIR/14_get_design.csh
+
 source $CSH_DIR/18_get_report.csh
+source $CSH_DIR/19_get_system.csh
+source $DVC_HOME/csh/12_get_server.csh
+source $DVC_HOME/csh/13_get_project.csh
+source $DVC_HOME/csh/14_get_folder.csh
 
 set project = $DESIGN_PROJT
-set phase   = $DESIGN_PHASE
 set block   = $DESIGN_BLOCK
+set phase   = $DESIGN_PHASE
 set stage   = $DESIGN_STAGE
 set version = $DESIGN_VERSN
 
@@ -56,17 +58,17 @@ foreach detail_report ( $detail_list )
   (source $detail_report)  >> $project_htm
   echo "</details>" >> $project_htm
 end
-echo "<details id=phase_list open=true>" >> $project_htm
+echo "<details id=block_list open=true>" >> $project_htm
 echo "<summary> Phase List </summary>" >> $project_htm
 (source $html_templ/project/_table_begin.csh) >> $project_htm
- set phase_list   = `dir $dvc_data`
- foreach phase ( $phase_list )
-    set item_name = $phase
+ set block_list   = `dir $dvc_data`
+ foreach block ( $block_list )
+    set item_name = $block
     set item_path = .
     set item_data = $PROJT_PATH/$item_path/$item_name
     if ($item_name != "_") then
     if {(test -d $item_data)} then
-       echo "	PHASE : $phase"
+       echo "	BLOCK : $block"
        (source $html_templ/project/_table_data.csh) >> $project_htm
     endif
     endif

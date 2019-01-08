@@ -1,7 +1,7 @@
 echo "<table id=indextable>"
 echo "<tr class=title>"
-echo "<td>Block</td>"
-foreach dqi ($block_dqi)
+echo "<td>Stage</td>"
+foreach dqi ($stage_dqi)
   echo "<td>$dqi</td>"
 end
 echo "<td>"

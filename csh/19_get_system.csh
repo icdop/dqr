@@ -6,9 +6,8 @@ if (($1 == "-h") || ($1 == "--help")) then
    exit -1
 endif
 
-set dop_mode = dvc
+set dop_mode = dqr
 set dop_path = $0:h/..
-setenv DVC_HOME  $dop_path
 
 if ($?DOP_HOME == 0) then
    setenv DOP_HOME `realpath $0:h/../..`
@@ -27,7 +26,7 @@ if ($?DFA_HOME == 0) then
    setenv DQR_HOME $DOP_HOME/dfa
 endif
 
-if ($1 == "--dop_mode") then
+if ($1 == "--mode") then
    shift argv
    switch($1)
    case "dop":

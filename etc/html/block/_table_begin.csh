@@ -1,8 +1,8 @@
 echo "<table id=indextable>"
 echo "<tr class=title>"
-echo "<td>Stage</td>"
+echo "<td>Phase</td>"
 echo "<td>Comment</td>"
-foreach dqi ($stage_dqi)
+foreach dqi ($phase_dqi)
   echo "<td>$dqi</td>"
 end
 echo "</tr>"

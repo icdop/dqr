@@ -4,7 +4,7 @@ echo "<a href=$item_name/index.htm>"
 echo "$item_name"
 echo "</a>"
 echo "</td>"
-foreach dqi ($block_dqi)
+foreach dqi ($stage_dqi)
   echo "<td class=col2 width=10>"
   dvc_get_dqi --root $item_data $dqi
   echo "</td>"

@@ -19,8 +19,8 @@ source $CSH_DIR/14_get_design.csh
 source $CSH_DIR/18_get_report.csh
 
 set project = $DESIGN_PROJT
-set phase   = $DESIGN_PHASE
 set block   = $DESIGN_BLOCK
+set phase   = $DESIGN_PHASE
 set stage   = $DESIGN_STAGE
 set version = $DESIGN_VERSN
 
@@ -56,17 +56,17 @@ foreach detail_report ( $detail_list )
   (source $detail_report)  >> $phase_htm
   echo "</details>" >> $phase_htm
 end
-echo "<details id=block_list open=true>" >> $phase_htm
+echo "<details id=stage_list open=true>" >> $phase_htm
 echo "<summary> Block List </summary>" >> $phase_htm
 (source $html_templ/phase/_table_begin.csh) >> $phase_htm
- set block_list   = `dir $dvc_data`
- foreach block ( $block_list )
-    set item_name=$block
+ set stage_list   = `dir $dvc_data`
+ foreach stage ( $stage_list )
+    set item_name=$stage
     set item_path=$phase
     set item_data=$PROJT_PATH/$item_path/$item_name
     if ($item_name != "_") then
     if {(test -d $item_data)} then
-       echo "	BLOCK : $block"
+       echo "	STAGE : $stage"
        (source $html_templ/phase/_table_data.csh) >> $phase_htm
     endif
     endif

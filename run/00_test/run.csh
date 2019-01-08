@@ -2,7 +2,7 @@
 
 ### 1. Setup svn file server and project account - CAD/IT
 
-dvc_set_server SVN_ROOT $HOME/proj_svn
+dvc_set_server SVN_ROOT svn_root
 dvc_set_server SVN_MODE svn
 dvc_set_server SVN_HOST localhost
 
@@ -15,8 +15,8 @@ dvc_create_project testcase
 
 ### 3. Create design version folder and checkin design data - Design Manager
 
-dvc_remove_folder P1-trial/chip/000-DATA/2017_0910-xxx
-dvc_create_folder P1-trial/chip/000-DATA/2017_0910-xxx
+dvc_remove_folder chip/P1-trial/000-DATA/2017_0910-xxx
+dvc_create_folder chip/P1-trial/000-DATA/2017_0910-xxx
 
 dvc_checkout_folder
 

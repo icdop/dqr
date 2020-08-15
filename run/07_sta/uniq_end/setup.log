@@ -42,25 +42,7 @@ INFO: Generating Slack Summary Report..
 	: ========== ========== ========== ========== ==========================
 	:       REAL     WAIVED        NVP        WNS PathGroup
 	: ========== ========== ========== ========== ==========================
-(2) 000	000_TT	STA/func/000_TT/setup.rpt~
-	:   Report : constraint -path slack_only (Line# 2)
-	:   min_delay/hold ('CLK_VIP' group)
-	:   min_delay/hold ('CLK_VIP_DIV2' group)
-	:   WNS = 0
-	:   NVP = 0
-	:   NMP = 0
-	:   NWP = 0
-	:   Report : constraint -verbose (Line# 25)
-	:   Path# 0 , Line# 100
-	:   WNS = 0
-	:   NVP = 0
-	:   NMP = 0
-	:   NWP = 0
-INFO: Generating Slack Summary Report..
-	: ========== ========== ========== ========== ==========================
-	:       REAL     WAIVED        NVP        WNS PathGroup
-	: ========== ========== ========== ========== ==========================
-(3) 258	258_WC	STA/func/258_WC/setup.rpt
+(2) 258	258_WC	STA/func/258_WC/setup.rpt
 	:   Report : constraint -path slack_only (Line# 2)
 	:   max_delay/setup ('VCLK_APB' group)
 	:   max_delay/setup ('VCLK_CAN' group)
@@ -96,8 +78,8 @@ INFO: Generating Violation Diff Chart (scan/setup)...
 INFO: Generating Violation Diff Chart (scan/setup)...
 	:uniq_end/scan/setup.nvp_wns.full.png
 INFO(func): Merging slack files of multiple corners ...
-(000)	: uniq_end/func/setup/000_TT.vio
 (258)	: uniq_end/func/setup/258_WC.vio
+(000)	: uniq_end/func/setup/000_TT.vio
 INFO(func): Generating unique endpoint TEXT format report..
 INFO(func): Generating unique endpoint HTML format report..
 INFO(func): 5 Clocks
@@ -122,8 +104,8 @@ INFO: Generating Slack Summary Report..
 	: ========== ========== ========== ========== ==========================
 INFO(func): Group slack files of multiple corners ...
 uniq_end/func/setup/*.vio
-(000)	: uniq_end/func/setup/000_TT.vio
 (258)	: uniq_end/func/setup/258_WC.vio
+(000)	: uniq_end/func/setup/000_TT.vio
 INFO(func): 0 blocks
 INFO(scan): Group slack files of multiple corners ...
 uniq_end/scan/setup/*.vio

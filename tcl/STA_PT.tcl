@@ -197,10 +197,12 @@ proc parse_timing_report {sta_mode {sta_check ""} } {
           }
         } elseif {[regexp {max_delay/setup\s+\('(\S+)' group\)$} $line whole egroup]} {
           puts "\t:$line"
+          if {[regexp {^clock_gating_} $egroup]} { set egroup "**clock_gating_default**" }
           set rpt_check setup
           set slack_offset [get_slack_offset $sta_mode $rpt_check $sta_corner $egroup]
         } elseif {[regexp {min_delay/hold\s+\('(\S+)' group\)$} $line whole  egroup]} {
           puts "\t:$line"
+          if {[regexp {^clock_gating_} $egroup]} { set egroup "**clock_gating_default**" }
           set rpt_check hold
           set slack_offset [get_slack_offset $sta_mode $rpt_check $sta_corner $egroup]
         } elseif {[regexp {^\s+clock_gating_(setup|hold)$} $line whole m]} {
@@ -213,7 +215,7 @@ proc parse_timing_report {sta_mode {sta_check ""} } {
           set slack_offset [get_slack_offset $sta_mode $rpt_check $sta_corner $egroup]
         } elseif {[regexp {^\s+removal$} $line]} {
           set rpt_check "hold"
-          set egroup "**asynci**"
+          set egroup "**async**"
           set slack_offset [get_slack_offset $sta_mode $rpt_check $sta_corner $egroup]
         } elseif {[regexp {^\s+sequential_clock_pulse_width} $line]} {
           set rpt_check "pulse_width"
@@ -221,27 +223,27 @@ proc parse_timing_report {sta_mode {sta_check ""} } {
           break;
         } elseif {[regexp {^\s+clock_tree_pulse_width} $line]} {
           set rpt_check "pulse_width"
-          set egroup "clock_tree"
+          set egroup "**clock_tree**"
           break;
         } elseif {[regexp {^\s+max_capacitance$} $line]} {
           set rpt_check "capacitance"
-          set egroup "drv"
+          set egroup "**drv**"
           break;
         } elseif {[regexp {^\s+min_capacitance$} $line]} {
           set rpt_check "capacitance"
-          set egroup "drv"
+          set egroup "**drv**"
           break;
         } elseif {[regexp {^\s+max_transition$} $line]} {
           set rpt_check "transition"
-          set egroup "drv"
+          set egroup "**drv**"
           break;
         } elseif {[regexp {^\s+min_transition$} $line]} {
           set rpt_check "transition"
-          set egroup "drv"
+          set egroup "**drv**"
           break;
         } elseif {[regexp {^\s+max_fanout$} $line]} {
           set rpt_check "fanout"
-          set egroup "drv"
+          set egroup "**drv**"
           break;
         } elseif {[regexp {^\s+-------} $line]} {
         } elseif {[regexp {Report\s+\:\s+(\S+)} $line whole rpt_type]} {
@@ -312,7 +314,7 @@ proc parse_timing_report {sta_mode {sta_check ""} } {
           } elseif {$ptype == "min"} {
              set rpt_check "hold"
           } else {
-             set rpt_check "default"
+             set rpt_check "drv"
           }
           set slack_offset [get_slack_offset $sta_mode $rpt_check $sta_corner $eclock]
         } elseif {[regexp {^\s+Point\s+} $line]} {
@@ -418,7 +420,7 @@ proc parse_timing_report {sta_mode {sta_check ""} } {
           } elseif {$ptype == "min"} {
              set rpt_check "hold"
           } else {
-             set rpt_check "default"
+             set rpt_check "drv"
           }
           set slack_offset [get_slack_offset $sta_mode $rpt_check $sta_corner $eclock]
           set inst_matching 1

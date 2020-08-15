@@ -256,17 +256,17 @@ proc generate_vio_endpoint {{sta_check ""} } {
 
 #
 # <Title>
-#   Create master index.html file
+#   Create master index.htm file
 #
 # <Output>
-#   $STA_SUM_DIR/index.html
+#   $STA_SUM_DIR/index.htm
 #
 proc report_index_main {{url "mode.htm"}} {
   variable STA_SUM_DIR
 
   file mkdir $STA_SUM_DIR
   puts "INFO: Generating Home Index Page ..."
-  set fo [open "$STA_SUM_DIR/index.html" "w"]
+  set fo [open "$STA_SUM_DIR/index.htm" "w"]
   puts $fo "<html>"
   puts $fo "<head>"
   puts $fo "<meta http-equiv=\"refresh\" content=\"0;url=$url\">"
@@ -446,7 +446,7 @@ proc report_index_corner {{sta_check_list ""}} {
 # Report Summary Page of the STA Mode
 #
 # <Output>
-# $STA_SUM_DIR/$sta_mode/index.html
+# $STA_SUM_DIR/$sta_mode/index.htm
 #
 proc report_index_check {{sta_mode "func"}} {
   global env
@@ -455,7 +455,7 @@ proc report_index_check {{sta_mode "func"}} {
 
   file mkdir $STA_SUM_DIR/$sta_mode
   puts "INFO: Generating Mode Index Page ($sta_mode) ..."
-  set fo [open "$STA_SUM_DIR/$sta_mode/index.html" "w"]
+  set fo [open "$STA_SUM_DIR/$sta_mode/index.htm" "w"]
   puts $fo "<html>"
   puts $fo "<head>"
   puts $fo $::LIB_HTML::TABLE_CSS(sta_tbl)

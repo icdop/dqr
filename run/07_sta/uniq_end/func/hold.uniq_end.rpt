@@ -35,4 +35,3 @@
       33|      .     -0.61       .  |    -0.61 @      157 | CLK_XTAL_MCU                             : u_core/u_ful_regd_slice/payload_reg_b_reg_58_/D
       34|      .     -1.48       .  |    -1.48 @      157 | CLK_XTAL_MCU                             : u_core/u_ful_regd_slice/payload_reg_b_reg_65_/D
       35|      .     -0.08       .  |    -0.08 @      157 | CLK_XTAL_MCU                             : u_core/u_rev_regd_slice/payload_reg_reg_36_/D
-      36|      .     -1.05       .  |    -1.05 @      157 | clock_gating_default                     : u_core/u_spi/u_spi_txrx/clk_gate_buf_rxd_reg/latch/E

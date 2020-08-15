@@ -1,6 +1,6 @@
 # File : /home/toolsadm/GITHOME/dqr/run/07_sta/STA/func/157_BC/hold.rpt
 # Report : constraint -path slack_only (Line# 2)
-     -1.05 clock_gating_default           u_core/u_spi/u_spi_txrx/clk_gate_buf_rxd_reg/latch/E
+     -1.05 **clock_gating_default**       u_core/u_spi/u_spi_txrx/clk_gate_buf_rxd_reg/latch/E
      -0.82 CLK_DI_ISP                     u_core/u_isp_top/u_vsm_ram2a/gen_sram_960x32_u_sram_960x32/A[1]
      -0.76 CLK_DI_ISP                     u_core/u_isp_top/u_isp_exp_v2_sram_wrapper/gen_rf_128x19_u_rf_128x19/A[2]
      -0.72 CLK_DI_ISP                     u_core/u_isp_top/u_r_lscram/gen_sram_512x24_u_sram_512x24/A[5]

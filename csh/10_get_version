@@ -1,0 +1,4 @@
+#!/usr/bin/tclsh
+set DQR_HOME [file dirname [file dirname [file normalize [info script]]]]
+
+source $DQR_HOME/tcl/LIB_DQR.tcl

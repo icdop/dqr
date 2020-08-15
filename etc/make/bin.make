@@ -15,4 +15,10 @@ bin: csh/* csh/
 	ln -f -s $(CSH_PATH)/84_report_version.csh		$(BIN_PATH)/dqr_report_version
 	ln -f -s $(CSH_PATH)/85_report_container.csh		$(BIN_PATH)/dqr_report_container
 	ln -f -s $(CSH_PATH)/89_report_index.csh		$(BIN_PATH)/dqr_report_index
+	ln -f -s $(CSH_PATH)/20_sta_index.csh			$(BIN_PATH)/dqr_sta_index
+	ln -f -s $(CSH_PATH)/21_sta_uniq_end.csh		$(BIN_PATH)/dqr_sta_uniq_end
+	ln -f -s $(CSH_PATH)/22_sta_by_clock.csh		$(BIN_PATH)/dqr_sta_by_clock
+	ln -f -s $(CSH_PATH)/23_sta_by_group.csh		$(BIN_PATH)/dqr_sta_by_group
+	ln -f -s $(CSH_PATH)/31_cap_read_spef.csh		$(BIN_PATH)/dqr_create_cap
+	ln -f -s $(CSH_PATH)/32_cap_comp.csh		 	$(BIN_PATH)/dqr_comapre_cap
 

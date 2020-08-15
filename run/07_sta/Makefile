@@ -1,0 +1,1 @@
+.dqr/Makefile.sta

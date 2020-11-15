@@ -16,9 +16,9 @@ setenv CSH_DIR $DQR_HOME/csh
 
 source $CSH_DIR/18_get_report.csh
 source $CSH_DIR/19_get_system.csh
-source $DVC_HOME/csh/12_get_server.csh
-source $DVC_HOME/csh/13_get_project.csh
-source $DVC_HOME/csh/14_get_folder.csh
+source $CSH_DIR/12_get_server.csh
+source $CSH_DIR/csh/13_get_project.csh
+source $CSH_DIR/csh/14_get_folder.csh
 
 set project = $DESIGN_PROJT
 set block   = $DESIGN_BLOCK

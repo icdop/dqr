@@ -3,6 +3,9 @@ flow	:= plugin/520-sta
 help: flow
 	make -f flow/Makefile help
 
+run: flow design import check dqi save html
+
+
 design:
 	dvc_init_server --root svn_root --mode file
 	dvc_create_project 06-plugin _
@@ -13,7 +16,7 @@ flow:
 	rm -f flow
 	ln -s $(flow) flow
 
-run import check dqi save html view:
+import check dqi save html view:
 	make -f flow/Makefile $@
 
 checkin:

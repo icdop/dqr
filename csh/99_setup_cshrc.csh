@@ -13,10 +13,5 @@ if ($?DOP_HOME == 0) then
    setenv DOP_HOME $DQR_HOME:h
 endif
 
-if ($?DVC_HOME == 0) then
-   setenv DVC_HOME `realpath $DOP_HOME/dvc`
-   set path = ($DVC_HOME/bin $path)
-endif
 echo "DOP_HOME = $DOP_HOME"
-echo "DVC_HOME = $DVC_HOME"
 echo "DQR_HOME = $DQR_HOME"

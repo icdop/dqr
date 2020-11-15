@@ -6,10 +6,10 @@ if (($1 == "-h") || ($1 == "--help")) then
    exit -1
 endif
 
-if ($?DVC_HOME == 0) then
-   setenv DVC_HOME $0:h/
+if ($?DQR_HOME == 0) then
+   setenv DQR_HOME $0:h/
 endif
-setenv CSH_DIR $DVC_HOME/csh 
+setenv CSH_DIR $DQR_HOME/csh 
 source $CSH_DIR/13_get_project.csh
 source $CSH_DIR/14_get_design.csh
 

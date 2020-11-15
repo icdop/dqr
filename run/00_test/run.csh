@@ -3,6 +3,7 @@
 ### 1. Setup svn file server and project account - CAD/IT
 
 dvc_set_server SVN_ROOT svn_root
+#dvc_set_server SVN_MODE file
 dvc_set_server SVN_MODE svn
 dvc_set_server SVN_HOST localhost
 
@@ -26,6 +27,8 @@ cp design_x.sdc :version/design.sdc
 dvc_checkin_folder
 
 dvc_list_project --recursive
+
+dvc_init_server stop
 
 tree _
 

@@ -13,4 +13,4 @@ clean:
 	rm -fr :block
 	rm -fr :phase
 	rm -fr .dop	
-	rm -fr svnroot
+	rm -fr svn_root

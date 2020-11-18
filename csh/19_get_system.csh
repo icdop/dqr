@@ -2,7 +2,7 @@
 #set verbose = 1
 set prog = $0:t
 if (($1 == "-h") || ($1 == "--help")) then
-   echo "Usage: $prog [--dop|--dvc|--dqr|--dcm|--dfa|--dvs] [--dop_version|--dop_path]"
+   echo "Usage: $prog [--dop|--dvc|--dqr|--dcm|--dfa|--dvs] [--version|--dop_path]"
    exit -1
 endif
 
@@ -57,15 +57,15 @@ if ($1 == "--mode") then
    endsw
 endif
 
-if {(test -f $dop_path/etc/DOP_VERSION)} then
-   setenv DOP_VERSION `cat $dop_path/etc/DOP_VERSION`
+if {(test -f $dop_path/etc/DQQ_VERSION)} then
+   setenv DQR_VERSION `cat $dop_path/etc/DQR_VERSION`
 else
-   setenv DOP_VERSION ":undefined:"
+   setenv DQR_VERSION ":undefined:"
 endif
 
 switch($1)
-case "--dop_version":
-   echo $DOP_VERSION
+case "--version":
+   echo $DQR_VERSION
    shift argv
    breaksw
 case "--dop_path":
@@ -73,5 +73,5 @@ case "--dop_path":
    shift argv
    breaksw
 default:
-   echo "INFO: DOP_VERSON = $DOP_VERSION"
+   echo "INFO: DQR_VERSON = $DQR_VERSION"
 endsw

@@ -1,6 +1,6 @@
 #!/bin/csh -f
 set dqi_list="F01-LEC P01-Func_max P02-Func_min P03-Scan_min P04-Power P05-Noise L01-Short L02-DRC R01-EM R02-IR"
-set block_list="chip block1 block2 block3 block4 block5"
+set block_list="chip block1 block2 block3"
 
 ### 1. Setup svn file server 
 
@@ -32,6 +32,12 @@ dvc_set_dqi --root :phase R02-IR       0
       dvc_set_dqi --root :block $dqi_name `date +%S`
     end
     dvc_checkin_block
+    dvc_create_design P1-trial/$block/400-APR/2017_0912-xxx
+    dvc_checkout_design
+    foreach dqi_name ($dqi_list)
+      dvc_set_dqi $dqi_name `date +%S`
+    end
+    dvc_checkin_design
   end
 
 dvc_create_design P1-trial/chip/400-APR/2017_0912-xxx
@@ -64,7 +70,7 @@ dvc_set_dqi  ICG_GEN/NVP  1000
 
 dvc_checkin_design
 
-  set step_list = "preplace place cts route postroute"
+  set step_list = "412-place 413-cts 414-route 415-postroute"
   foreach step ($step_list) 
     dvc_create_container  $step
     dvc_checkout_container

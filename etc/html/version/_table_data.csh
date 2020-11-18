@@ -6,7 +6,7 @@ echo "</a>"
 echo "</td>"
 
 echo "<td class=col2>"
-cat "$item_data/.dvc/README"
+echo "<object name=readme type=text/html data=$item_name/.dvc/README width=300></object>"
 echo "</td>"
 
 foreach dqi ($container_dqi)

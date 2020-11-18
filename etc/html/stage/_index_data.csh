@@ -1,6 +1,12 @@
 
 echo "<table id=report>"
-echo "<tr class=title><td colspan=3><h2>[$project]/$dvc_path/</h2></td></tr>"
+echo "<tr class=header>"
+echo "<td colspan=3><h2>"
+echo "<h2>[$project]</h2>"
+echo "<a href=../index.htm>"
+echo `dirname $dvc_path`
+echo "</a>"
+echo "</td></tr>"
 echo "<tr class=header>"
 echo "<td>Stage</td>"
 echo "<td>README</td>"
@@ -9,9 +15,7 @@ echo "</tr>"
 
 echo "<tr class=data>"
 echo "<td class=col1>"
-echo "<a href=../index.htm>"
 echo "<h3>$dvc_name</h3>"
-echo "</a>"
 echo "</td>" 
 
 echo "<td class=col2>" 

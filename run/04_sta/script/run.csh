@@ -10,9 +10,9 @@ dvc_create_project 04_sta
 
 dvc_checkout_project --force 04_sta _
 
-### 3. Create design version folder and checkin design data - Design Manager
+### 3. Create design data folder and checkin design data - Design Manager
 
-dvc_create_design    chip/P1-trial/400-APR/2017_0910-xxx
+dvc_create_design    P1-trial/chip/400-APR/2017_0910-xxx
 dvc_checkout_design  
   cp data/design.v   :version/design.v
   cp data/design.sdc :version/design.sdc
@@ -29,7 +29,7 @@ dvc_checkin_design
 
 dvc_create_stage     520-sta
 dvc_checkout_stage   520-sta
-set version_list = "2017_0910-ww38 2017_0910-ww39 2017_0910-ww40"
+set version_list = "2017_0910-eco1 2017_0910-eco2 2017_0910-eco3"
 foreach version ($version_list)
   dvc_create_version $version
   dvc_checkout_version $version

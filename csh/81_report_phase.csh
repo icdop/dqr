@@ -56,17 +56,17 @@ foreach detail_report ( $detail_list )
   (source $detail_report)  >> $phase_htm
   echo "</details>" >> $phase_htm
 end
-echo "<details id=stage_list open=true>" >> $phase_htm
+echo "<details id=block_list open=true>" >> $phase_htm
 echo "<summary> Block List </summary>" >> $phase_htm
 (source $html_templ/phase/_table_begin.csh) >> $phase_htm
- set stage_list   = `dir $dvc_data`
- foreach stage ( $stage_list )
-    set item_name=$stage
+ set block_list   = `dir $dvc_data`
+ foreach block ( $block_list )
+    set item_name=$block
     set item_path=$phase
     set item_data=$PROJT_PATH/$item_path/$item_name
     if ($item_name != "_") then
     if {(test -d $item_data)} then
-       echo "	STAGE : $stage"
+       echo "	BLOCK : $block"
        (source $html_templ/phase/_table_data.csh) >> $phase_htm
     endif
     endif

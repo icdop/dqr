@@ -1,6 +1,7 @@
 help:
 	@echo "Usage:	make run"
-	@echo "		make report"
+	@echo "		make diff"
+	@echo "		make index"
 	@echo "		make clean"
 
 run: 

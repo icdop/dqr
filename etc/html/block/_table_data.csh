@@ -5,12 +5,11 @@ echo "$item_name"
 echo "</a>"
 echo "</td>"
 
-echo "<td class=col3>"
-cat "$item_name/.dvc/README"
+#echo "<td class=col3>"
 #echo "<object name=readme type=text/html data=$item_name/.dvc/README width=300></object>"
-echo "</td>"
+#echo "</td>"
 
-foreach dqi ($phase_dqi)
+foreach dqi ($stage_dqi)
   echo "<td class=col2 width=10>"
   dvc_get_dqi --root $item_data $dqi
   echo "</td>"
